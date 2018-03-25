@@ -11,7 +11,8 @@ class Main:
         handler = ArgumentHandler(self.arguments)
         requests = handler.parse()
         workerFactory = WorkerFactory(requests)
-        workersArray = workerFactory.build()
+        workersBracket = workerFactory.build()
+        workersBracket.run_workers()
 
 
 if __name__ == "__main__":
