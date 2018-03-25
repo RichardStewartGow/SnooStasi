@@ -2,6 +2,8 @@ import re
 
 class argumentHandler:
 
+    buildTuple = ('workers', 'type')
+    commandTuple = ('query', 'target')
     def __init__(self, inputArguments):
         self.arguments = inputArguments
         self.argWorkload = []
@@ -16,11 +18,11 @@ class argumentHandler:
     def sort_build_and_command(self):
         for workload in self.argWorkload:
             paramAndValue = workload.split('=')
-            if 'workers' in paramAndValue:
-                self.buildRequests.append({'build': paramAndValue[1]})
+            if paramAndValue[0] in self.buildTuple:
+                self.buildRequests.append({paramAndValue[0]: paramAndValue[1]})
                 continue
-            if 'type' in paramAndValue:
-                self.buildRequests.append({'type': paramAndValue[1]})
+            if paramAndValue[0] in self.commandTuple:
+                self.commandRequests.append({paramAndValue[0]: paramAndValue[1]})
                 continue
         return False
 
