@@ -1,4 +1,4 @@
-
+import praw
 
 class QueryWorker:
     def __init__(self, commands, iteration):
