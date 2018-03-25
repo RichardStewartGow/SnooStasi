@@ -24,6 +24,7 @@ class argumentHandler:
             if paramAndValue[0] in self.commandTuple:
                 self.commandRequests.append({paramAndValue[0]: paramAndValue[1]})
                 continue
+            raise Exception('argument: ' + paramAndValue[0] + ' not found in existing map')
         return False
 
     def parse(self):
@@ -34,4 +35,9 @@ class argumentHandler:
         if self.argWorkload.__len__() > 0:
             self.sort_build_and_command()
 
-        return False
+        if self.buildRequests and self.commandRequests:
+             return {'buildRequests': self.buildRequests, 'commandRequests': self.commandRequests}
+
+        raise Exception('argumentHandler unable to return full formatted '
+                        'argument list due to build or command requests '
+                        'being incomplete')
