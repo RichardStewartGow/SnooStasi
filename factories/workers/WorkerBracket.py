@@ -10,5 +10,5 @@ class WorkerBracket:
                 worker.run()
             except Exception:
                 raise WorkerRunException(
-                    'Worker ' + worker.getName() + ' has failed to run ', worker.getIssue()
+                    'Worker ' + worker.getName() + ' has failed to run ', worker.getIssue(), worker
                 )

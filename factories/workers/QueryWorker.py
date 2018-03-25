@@ -6,7 +6,10 @@ class QueryWorker:
         self.didWork = False
 
     def getName(self):
-        return
+        return self.name
+
+    def getIssue(self):
+        return self.issue
 
     ##@todo aim should be for this to be a super method in child workers
     def run(self):
