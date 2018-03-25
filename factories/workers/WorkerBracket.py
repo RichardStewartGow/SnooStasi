@@ -1,6 +1,4 @@
-import WorkerRunException
-
-class WorkerBracker:
+class WorkerBracket:
     def __init__(self, workers):
         self.workers = workers
 

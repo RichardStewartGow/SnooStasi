@@ -1,7 +1,10 @@
+from .workers import QueryWorker, WorkerBracket
+import sys
+
 class WorkerFactory:
 
     workerTypeMap = {}
-    classMap = {'query':'QueryWorker'}
+    classMap = {'spy':'QueryWorker'}
 
     def __init__(self, requests):
         self.requests = requests
@@ -17,5 +20,11 @@ class WorkerFactory:
 
     def build(self):
         self.buildCounter = self.requests['buildRequests']['workers']
+
+        workerHoldingArray = []
+
+        for counter in range(int(self.buildCounter)):
+            className = self.classMap[self.requests['buildRequests']['type']]
+            workerHoldingArray.append(getattr(sys.modules[__name__], className))
 
         raise Exception('Worker Factory given no processable work')
