@@ -1,9 +1,11 @@
 import re
 
-class argumentHandler:
+
+class ArgumentHandler:
 
     buildTuple = ('workers', 'type', 'test')
     commandTuple = ('query', 'target')
+
     def __init__(self, inputArguments):
         self.arguments = inputArguments
         self.argWorkload = []

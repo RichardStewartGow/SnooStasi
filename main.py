@@ -1,16 +1,17 @@
 #@todo refactor into class into own file
 
 import sys
-from handlers.argumentHandler import argumentHandler
+from handlers.ArgumentHandler import ArgumentHandler
 
-class main:
+class Main:
     def __init__(self, args):
         self.arguments = args
     def run(self):
-        handler = argumentHandler(self.arguments)
+        handler = ArgumentHandler(self.arguments)
         commands = handler.parse()
+
 
 if __name__ == "__main__":
     arguments = sys.argv
-    mainObject = main(arguments)
+    mainObject = Main(arguments)
     mainObject.run()
