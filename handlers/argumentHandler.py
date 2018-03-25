@@ -2,7 +2,7 @@ import re
 
 class argumentHandler:
 
-    buildTuple = ('workers', 'type')
+    buildTuple = ('workers', 'type', 'test')
     commandTuple = ('query', 'target')
     def __init__(self, inputArguments):
         self.arguments = inputArguments
