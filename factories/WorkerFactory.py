@@ -23,8 +23,11 @@ class WorkerFactory:
 
         workerHoldingArray = []
 
+        ##@todo look into refactoring below to take out classname as is being instanciated mutliple times
         for counter in range(int(self.buildCounter)):
             className = self.classMap[self.requests['buildRequests']['type']]
-            workerHoldingArray.append(getattr(sys.modules[__name__], className))
+            moduleObject = getattr(sys.modules[__name__], className)
+            classObject = getattr(moduleObject, className)(self.requests['commandRequests'])
+            workerHoldingArray.append(classObject)
 
         raise Exception('Worker Factory given no processable work')
