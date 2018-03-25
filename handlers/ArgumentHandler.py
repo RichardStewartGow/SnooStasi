@@ -9,8 +9,8 @@ class ArgumentHandler:
     def __init__(self, inputArguments):
         self.arguments = inputArguments
         self.argWorkload = []
-        self.buildRequests = []
-        self.commandRequests = []
+        self.buildRequests = {}
+        self.commandRequests = {}
 
     def is_argument(self, stringTarget):
         if re.search('^--', stringTarget):
@@ -21,10 +21,10 @@ class ArgumentHandler:
         for workload in self.argWorkload:
             paramAndValue = workload.split('=')
             if paramAndValue[0] in self.buildTuple:
-                self.buildRequests.append({paramAndValue[0]: paramAndValue[1]})
+                self.buildRequests[paramAndValue[0]] = paramAndValue[1]
                 continue
             if paramAndValue[0] in self.commandTuple:
-                self.commandRequests.append({paramAndValue[0]: paramAndValue[1]})
+                self.commandRequests[paramAndValue[0]] = paramAndValue[1]
                 continue
             raise Exception('argument: ' + paramAndValue[0] + ' not found in existing map')
         return False
