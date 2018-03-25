@@ -1,3 +1,5 @@
+
+
 class QueryWorker:
     def __init__(self, commands, iteration):
         self.name = __name__ + ':' + str(iteration)
