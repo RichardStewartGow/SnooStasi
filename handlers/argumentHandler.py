@@ -1,6 +1,5 @@
 import re
 
-
 class argumentHandler:
 
     def __init__(self, inputArguments):
@@ -10,6 +9,9 @@ class argumentHandler:
     def is_argument(self, stringTarget):
         if re.search('^--', stringTarget):
             return True
+        return False
+
+    def sort_build_and_command(self):
         return False
 
     def parse(self):
