@@ -30,4 +30,7 @@ class WorkerFactory:
             classObject = getattr(moduleObject, className)(self.requests['commandRequests'])
             workerHoldingArray.append(classObject)
 
+        if len(workerHoldingArray) > 0:
+            return WorkerBracket.WorkerBracket(workerHoldingArray)
+
         raise Exception('Worker Factory given no processable work')
