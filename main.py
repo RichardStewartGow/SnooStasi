@@ -1,5 +1,6 @@
 import sys
 from handlers.ArgumentHandler import ArgumentHandler
+from factories.WorkerFactory import WorkerFactory
 
 
 class Main:
@@ -8,7 +9,9 @@ class Main:
 
     def run(self):
         handler = ArgumentHandler(self.arguments)
-        commands = handler.parse()
+        requests = handler.parse()
+        workerFactory = WorkerFactory(requests)
+        workersArray = workerFactory.build()
 
 
 if __name__ == "__main__":
