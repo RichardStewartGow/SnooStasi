@@ -4,3 +4,4 @@ class WorkerRunException(Exception):
 
         self.errors = errors
         self.worker = worker
+
