@@ -15,6 +15,6 @@ class argumentHandler:
     def parse(self):
         for argument in self.arguments:
             if self.is_argument(argument):
-                self.argWorkload.append(argument)
+                self.argWorkload.append(argument[2:])
 
         return False
