@@ -7,6 +7,7 @@ class QueryWorker:
         self.config = config
         self.issue = ''
         self.didWork = False
+        self.reddit = None
 
     def getName(self):
         return self.name
@@ -14,8 +15,26 @@ class QueryWorker:
     def getIssue(self):
         return self.issue
 
+    def set_up_praw(self):
+        try:
+            self.reddit = praw.Reddit(
+                client_id=self.config['Reddit']['key'],
+                client_secret=self.config['Reddit']['secret'],
+                password=self.config['Reddit']['password'],
+                user_agent='test',
+                username=self.config['Reddit']['username']
+            )
+
+            self.reddit.user.me();
+        except Exception as error:
+            return False;
+
+        return True
+
     ##@todo aim should be for this to be a super method in child workers
     def run(self):
+
+        self.set_up_praw()
 
         if self.didWork:
             return True
