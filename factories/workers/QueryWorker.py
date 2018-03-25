@@ -1,9 +1,10 @@
 import praw
 
 class QueryWorker:
-    def __init__(self, commands, iteration):
+    def __init__(self, commands, iteration, config):
         self.name = __name__ + ':' + str(iteration)
         self.commands = commands
+        self.config = config
         self.issue = ''
         self.didWork = False
 
@@ -18,6 +19,7 @@ class QueryWorker:
 
         if self.didWork:
             return True
+
 
         self.issue = 'Failed to connect'
         raise Exception(self.issue)

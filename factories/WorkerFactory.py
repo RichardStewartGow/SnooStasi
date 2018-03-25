@@ -27,7 +27,9 @@ class WorkerFactory:
         for counter in range(int(self.buildCounter)):
             className = self.classMap[self.requests['buildRequests']['type']]
             moduleObject = getattr(sys.modules[__name__], className)
-            classObject = getattr(moduleObject, className)(self.requests['commandRequests'], counter)
+            classObject = getattr(moduleObject, className)(
+                self.requests['commandRequests'], counter, self.requests['config']
+            )
             workerHoldingArray.append(classObject)
 
         if len(workerHoldingArray) > 0:
