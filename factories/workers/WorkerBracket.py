@@ -1,3 +1,5 @@
+from .WorkerRunException import WorkerRunException
+
 class WorkerBracket:
     def __init__(self, workers):
         self.workers = workers

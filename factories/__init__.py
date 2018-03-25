@@ -1,1 +1,1 @@
-from .workers import QueryWorker
+import factories.workers
