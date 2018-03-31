@@ -21,7 +21,7 @@ class FollowerWorker(BasicWorker):
         return;
 
     def run(self):
-        super.run()
+        super().run()
 
         self.do_work()
 

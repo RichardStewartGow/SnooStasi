@@ -8,7 +8,7 @@ class WorkerBracket:
         for worker in self.workers:
             try:
                 worker.run()
-            except Exception:
+            except Exception as error:
                 raise WorkerRunException(
                     'Worker ' + worker.getName() + ' has failed to run ', worker.getIssue(), worker
                 )
