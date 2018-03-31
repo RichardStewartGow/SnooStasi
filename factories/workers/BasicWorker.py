@@ -1,4 +1,6 @@
 import praw
+from ..CommandFactory import CommandFactory
+
 
 class BasicWorker:
     def __init__(self, commands, iteration, config):
@@ -31,11 +33,22 @@ class BasicWorker:
 
         return True
 
+    def set_up_commands(self):
+        commandFactory = CommandFactory()
+        try:
+            self.commands = commandFactory.build(self.reddit, self.commands)
+        except Exception as error:
+            return error;
+
     ##@todo aim should be for this to be a super method in child workers
     def run(self):
 
-        if self.set_up_praw():
-            return True
+        if not self.set_up_praw():
+            self.issue = 'Failed to connect'
+            raise Exception(self.issue)
 
-        self.issue = 'Failed to connect'
-        raise Exception(self.issue)
+        if not self.set_up_commands():
+            self.issue = 'Commands failed to setup'
+            raise Exception(self.issue)
+
+        return True

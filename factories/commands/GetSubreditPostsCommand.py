@@ -9,7 +9,6 @@ class GetSubbredditPostsCommand(BaseCommand):
         self.set_up()
 
         ##@todo need to call type here as well dynamically
-        self.praw.subreddit(self.target)
-
+        result = self.praw.subreddit(self.target)
 
         return result

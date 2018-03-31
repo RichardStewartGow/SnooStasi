@@ -4,7 +4,7 @@ import re
 class ArgumentHandler:
 
     buildTuple = ('workers', 'type', 'test')
-    commandTuple = ('query', 'target')
+    commandTuple = ('follow-user', 'follow-sub')
 
     def __init__(self, inputArguments):
         self.arguments = inputArguments

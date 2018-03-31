@@ -18,7 +18,7 @@ class FollowerWorker(BasicWorker):
 
 
         self.didWork = True
-        return;
+        return
 
     def run(self):
         super().run()
@@ -29,4 +29,4 @@ class FollowerWorker(BasicWorker):
             raise Exception('Commands given to ' + __name__  + ' invalid')
 
         if self.didWork:
-            return True
+            return self.results
