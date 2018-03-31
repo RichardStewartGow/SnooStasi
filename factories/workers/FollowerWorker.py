@@ -9,8 +9,21 @@ class FollowerWorker(BasicWorker):
         for command in self.commands:
             continue
 
+    def do_work(self):
+
+        for command in self.commands:
+            result = command.do()
+            if result:
+                self.results.append(result)
+
+
+        self.didWork = True
+        return;
+
     def run(self):
         super.run()
+
+        self.do_work()
 
         if self.didWork:
             return True

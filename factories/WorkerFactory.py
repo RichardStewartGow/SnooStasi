@@ -1,10 +1,11 @@
-from .workers import BasicWorker, WorkerBracket
+from .workers import BasicWorker, FollowerWorker, WorkerBracket
+from .CommandFactory import CommandFactory
 import sys
 
 class WorkerFactory:
 
     workerTypeMap = {}
-    classMap = {'spy':'QueryWorker'}
+    classMap = {'spy':'FollowerWorker'}
 
     def __init__(self, requests):
         self.requests = requests

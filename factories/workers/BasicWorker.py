@@ -6,6 +6,7 @@ class BasicWorker:
         self.commands = commands
         self.config = config
         self.issue = ''
+        self.results = []
         self.didWork = False
         self.reddit = None
 
