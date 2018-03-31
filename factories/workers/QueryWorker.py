@@ -22,13 +22,14 @@ class QueryWorker:
                 client_id=self.config['reddit']['key'],
                 client_secret=self.config['reddit']['secret'],
                 password=self.config['reddit']['password'],
-                user_agent='test',
+                user_agent='SnooStasi.a.1',
                 username=self.config['reddit']['username']
             )
 
             self.reddit.user.me();
-        except Exception:
-            return Exception
+        except Exception as error:
+            self.issue = error.args[0]
+            return False
 
         return True
 
