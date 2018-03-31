@@ -1,6 +1,6 @@
 import praw
 
-class QueryWorker:
+class BasicWorker:
     def __init__(self, commands, iteration, config):
         self.name = __name__ + ':' + str(iteration)
         self.commands = commands
@@ -38,9 +38,7 @@ class QueryWorker:
     ##@todo aim should be for this to be a super method in child workers
     def run(self):
 
-        self.set_up_praw()
-
-        if self.didWork:
+        if self.set_up_praw():
             return True
 
         self.issue = 'Failed to connect'

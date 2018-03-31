@@ -1,6 +1,7 @@
-from .QueryWorker import QueryWorker
+from .BasicWorker import BasicWorker
 
-class FollowerWorker(QueryWorker):
+
+class FollowerWorker(BasicWorker):
     def __init__(self):
         super.__init__()
 

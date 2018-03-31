@@ -1,4 +1,4 @@
-from .workers import QueryWorker, WorkerBracket
+from .workers import BasicWorker, WorkerBracket
 import sys
 
 class WorkerFactory:
