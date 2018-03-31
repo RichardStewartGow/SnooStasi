@@ -2,8 +2,8 @@ from .BasicWorker import BasicWorker
 
 
 class FollowerWorker(BasicWorker):
-    def __init__(self):
-        super.__init__()
+    def __init__(self, commands, iteration, config):
+        super().__init__(commands, iteration, config)
 
     def check_commands_valid(self):
         for command in self.commands:

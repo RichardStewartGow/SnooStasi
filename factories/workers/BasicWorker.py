@@ -18,7 +18,6 @@ class BasicWorker:
 
     def set_up_praw(self):
         try:
-            test = 'test'
             self.reddit = praw.Reddit(
                 client_id=self.config['redditScript']['key'],
                 client_secret=self.config['redditScript']['secret'],
@@ -31,10 +30,6 @@ class BasicWorker:
             return False
 
         return True
-
-    def work(self):
-
-        self.didWork = True
 
     ##@todo aim should be for this to be a super method in child workers
     def run(self):
