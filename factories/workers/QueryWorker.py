@@ -17,17 +17,18 @@ class QueryWorker:
 
     def set_up_praw(self):
         try:
+            test = 'test'
             self.reddit = praw.Reddit(
-                client_id=self.config['Reddit']['key'],
-                client_secret=self.config['Reddit']['secret'],
-                password=self.config['Reddit']['password'],
+                client_id=self.config['reddit']['key'],
+                client_secret=self.config['reddit']['secret'],
+                password=self.config['reddit']['password'],
                 user_agent='test',
-                username=self.config['Reddit']['username']
+                username=self.config['reddit']['username']
             )
 
             self.reddit.user.me();
-        except Exception as error:
-            return False;
+        except Exception:
+            return Exception
 
         return True
 

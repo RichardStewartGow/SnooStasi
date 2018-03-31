@@ -13,7 +13,7 @@ class Main:
             try:
                 yamlContents = yaml.load(stream)
                 return yamlContents
-            except:
+            except Exception:
                 raise Exception('Issue opening config/config.yml file')
 
 
