@@ -25,9 +25,8 @@ class FollowerWorker(BasicWorker):
 
         self.do_work()
 
-        if self.didWork:
-            return True
-
         if not self.check_commands_valid():
             raise Exception('Commands given to ' + __name__  + ' invalid')
 
+        if self.didWork:
+            return True
