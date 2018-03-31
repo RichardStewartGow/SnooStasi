@@ -19,11 +19,11 @@ class QueryWorker:
         try:
             test = 'test'
             self.reddit = praw.Reddit(
-                client_id=self.config['reddit']['key'],
-                client_secret=self.config['reddit']['secret'],
-                password=self.config['reddit']['password'],
+                client_id=self.config['redditScript']['key'],
+                client_secret=self.config['redditScript']['secret'],
+                password=self.config['redditScript']['password'],
                 user_agent='SnooStasi.a.1',
-                username=self.config['reddit']['username']
+                username=self.config['redditScript']['username']
             )
 
             self.reddit.user.me();
