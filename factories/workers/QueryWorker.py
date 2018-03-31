@@ -25,13 +25,15 @@ class QueryWorker:
                 user_agent='SnooStasi.a.1',
                 username=self.config['redditScript']['username']
             )
-
-            self.reddit.user.me();
         except Exception as error:
             self.issue = error.args[0]
             return False
 
         return True
+
+    def work(self):
+
+        self.didWork = True
 
     ##@todo aim should be for this to be a super method in child workers
     def run(self):
@@ -40,7 +42,6 @@ class QueryWorker:
 
         if self.didWork:
             return True
-
 
         self.issue = 'Failed to connect'
         raise Exception(self.issue)

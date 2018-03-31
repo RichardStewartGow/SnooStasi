@@ -1,5 +1,4 @@
-import QueryWorker
-
+from .QueryWorker import QueryWorker
 
 class FollowerWorker(QueryWorker):
     def __init__(self):
@@ -11,6 +10,9 @@ class FollowerWorker(QueryWorker):
 
     def run(self):
         super.run()
+
+        if self.didWork:
+            return True
 
         if not self.check_commands_valid():
             raise Exception('Commands given to ' + __name__  + ' invalid')
