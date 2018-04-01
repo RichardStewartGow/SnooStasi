@@ -37,8 +37,9 @@ class BasicWorker:
         commandFactory = CommandFactory()
         try:
             self.commands = commandFactory.build(self.reddit, self.commands)
+            return True
         except Exception as error:
-            return error;
+            return error
 
     ##@todo aim should be for this to be a super method in child workers
     def run(self):

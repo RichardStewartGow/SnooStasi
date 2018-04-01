@@ -1,6 +1,7 @@
 from .commands import GetSubreditPostsCommand, GetUserPostsCommand
 import sys
 
+
 class CommandFactory:
 
     prawTranslaslationMap = {
@@ -18,11 +19,10 @@ class CommandFactory:
         for command in commands:
             className = self.classMap[command]
             moduleObject = getattr(sys.modules[__name__], className)
-            ##@todo figure out why this isunt working in this context - depth?
             classObject = getattr(moduleObject, className)(
                 praw, commands
             )
 
-        return
+        return classObject
 
 
