@@ -16,6 +16,10 @@ class CommandFactory:
 
     def build(self, praw, commands):
 
+        ##@todo may be more appropriate to give this a bracket, unsure
+        ##atm how running mutliple commands in sequence needs to work
+        outputArray = []
+
         for command in commands:
             className = self.classMap[command]
             moduleObject = getattr(sys.modules[__name__], className)
@@ -23,6 +27,10 @@ class CommandFactory:
                 praw, commands
             )
 
-        return classObject
+            outputArray.append(classObject)
+
+
+
+        return outputArray
 
 
