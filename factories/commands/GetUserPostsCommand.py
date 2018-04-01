@@ -1,7 +1,9 @@
 from .BaseCommand import BaseCommand
 
 
-class GetUsersPostsCommand(BaseCommand):
+class GetUserPostsCommand(BaseCommand):
+    def __init__(self, praw, commands):
+        super().__init__(praw, commands)
 
     def set_up(self):
         self.target = self.config['target']

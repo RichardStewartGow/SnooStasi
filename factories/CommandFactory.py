@@ -19,7 +19,7 @@ class CommandFactory:
             className = self.classMap[command]
             moduleObject = getattr(sys.modules[__name__], className)
             ##@todo figure out why this isunt working in this context - depth?
-            classObject = classObject = getattr(moduleObject, className)(
+            classObject = getattr(moduleObject, className)(
                 praw, commands
             )
 
